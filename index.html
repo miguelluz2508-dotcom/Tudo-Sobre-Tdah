@@ -5,51 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tudo sobre TDAH: Informações e Soluções</title>
     <meta name="description" content="Saiba tudo sobre TDAH, sintomas, tratamentos e compre nossa solução acessível por R$ 25. Baseado em fontes confiáveis como ABDA e WHO.">
-    <!-- Palavras-chave para SEO: TDAH, Transtorno de Déficit de Atenção, sintomas TDAH, tratamento TDAH Brasil -->
     <style>
-        /* Estilo Premium: Cores calmas (azul e verde), fontes modernas, layout clean */
         body {
-            font-family: 'Arial', sans-serif; /* Use 'Roboto' se disponível */
-            background-color: #f8f9fa; /* Cinza claro para fundo */
-            color: #333; /* Texto escuro para legibilidade */
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
             margin: 0;
             padding: 0;
         }
+
         header {
-            background-color: #007BFF; /* Azul royal para header */
+            background-color: #007BFF;
             color: white;
             padding: 20px;
             text-align: center;
         }
+
         nav {
-            background-color: #0056b3; /* Tom mais escuro para navegação */
-            padding: 10px;
+            background-color: #0056b3;
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            border-radius: 5px;
+            margin: 10px auto;
+            max-width: 1200px;
         }
+
         nav a {
             color: white;
             text-decoration: none;
-            margin: 0 15px;
             font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
         }
+
+        nav a:hover {
+            background-color: #007BFF;
+            transform: scale(1.05);
+        }
+
         .section {
             padding: 20px;
             margin: 20px auto;
-            max-width: 1200px; /* Largura premium */
+            max-width: 1200px;
             background-color: white;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra para efeito premium */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
+
         h1, h2 {
             color: #007BFF;
         }
+
         img {
             max-width: 100%;
             height: auto;
             border-radius: 5px;
             margin: 10px 0;
         }
+
         .button {
-            background-color: #28a745; /* Verde para botões de compra */
+            background-color: #3cb371;
             color: white;
             padding: 15px 25px;
             text-align: center;
@@ -58,7 +77,14 @@
             border-radius: 5px;
             font-weight: bold;
             margin: 20px 0;
+            transition: background-color 0.3s, transform 0.2s;
         }
+
+        .button:hover {
+            background-color: #2e8b57;
+            transform: scale(1.05);
+        }
+
         footer {
             background-color: #007BFF;
             color: white;
@@ -68,14 +94,64 @@
             bottom: 0;
             width: 100%;
         }
+
+        /* Tela de Termos */
+        #termosOverlay {
+            position: fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background-color: rgba(0,0,0,0.85);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            z-index: 9999;
+            overflow-y: auto;
+        }
+
+        #termosBox {
+            background-color: #007BFF;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 700px;
+        }
+
+        #termosBox button {
+            background-color: #3cb371;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        #termosBox button:hover {
+            background-color: #2e8b57;
+        }
     </style>
 </head>
 <body>
+    <!-- Tela de Termos de Uso -->
+    <div id="termosOverlay">
+        <div id="termosBox">
+            <h2>Termos de Uso do Site</h2>
+            <p>Ao acessar este site e adquirir nosso e-book, você concorda que todas as informações são apenas para fins educativos. Este site e seus materiais não substituem acompanhamento médico ou tratamento profissional. O usuário é responsável por utilizar as informações de forma segura e adequada.</p>
+            <p>Você só pode usar o site se aceitar estes termos. Não nos responsabilizamos por qualquer uso incorreto ou consequências de aplicar as dicas sem supervisão profissional.</p>
+            <button onclick="aceitarTermos()">Aceito os Termos e Quero Acessar o Site</button>
+        </div>
+    </div>
+
     <header>
         <h1>Tudo sobre TDAH</h1>
         <p>Entenda, Gerencie e Encontre Soluções Acessíveis</p>
     </header>
-    
+
     <nav>
         <a href="#inicio">Início</a>
         <a href="#o-que-e">O que é TDAH?</a>
@@ -83,47 +159,51 @@
         <a href="#tratamentos">Tratamentos</a>
         <a href="#compre">Compre a Solução</a>
     </nav>
-    
+
     <section id="inicio" class="section">
         <h2>Bem-vindo ao Site sobre TDAH</h2>
-        <p>Este site fornece informações completas sobre o Transtorno do Déficit de Atenção e Hiperatividade (TDAH), baseado em fontes confiáveis como a Associação Brasileira de Déficit de Atenção (ABDA) e a Organização Mundial da Saúde (WHO). Aprenda sobre sintomas, causas e dicas de gerenciamento. Além disso, oferecemos uma solução prática por apenas R$ 25!</p>
-        <img src="https://source.unsplash.com/1200x600/?focus" alt="Imagem representando foco e concentração" /> <!-- Substitua por uma foto real de Unsplash -->
+        <p>Este site fornece informações completas sobre o Transtorno do Déficit de Atenção e Hiperatividade (TDAH), baseado em fontes confiáveis como a ABDA e a OMS. Aprenda sobre sintomas, causas e dicas de gerenciamento. Além disso, oferecemos um e-book prático por apenas R$ 25!</p>
+        <img src="https://source.unsplash.com/1200x600/?focus" alt="Imagem representando foco e concentração" />
     </section>
-    
+
     <section id="o-que-e" class="section">
         <h2>O que é TDAH?</h2>
-        <p>TDAH é um transtorno neurodesenvolvimental que afeta a atenção, o comportamento e a impulsividade. De acordo com a ABDA (abda.org.br), afeta cerca de 5-7% das crianças e 2-5% dos adultos no Brasil. Sintomas incluem dificuldade de concentração e hiperatividade.</p>
+        <p>TDAH é um transtorno neurodesenvolvimental que afeta a atenção, o comportamento e a impulsividade. Afeta cerca de 5-7% das crianças e 2-5% dos adultos no Brasil. Sintomas incluem dificuldade de concentração e hiperatividade.</p>
         <p>Fonte: ABDA e WHO. Consulte um profissional de saúde para diagnóstico.</p>
-        <img src="https://source.unsplash.com/600x400/?brain" alt="Ilustração do cérebro" /> <!-- Substitua por foto relevante -->
+        <img src="https://source.unsplash.com/600x400/?brain" alt="Ilustração do cérebro" />
     </section>
-    
+
     <section id="sintomas" class="section">
         <h2>Sintomas e Impactos</h2>
-        <p>Os sintomas de TDAH incluem falta de atenção, hiperatividade e impulsividade, que podem impactar a escola, o trabalho e as relações pessoais (fonte: NIMH, nimh.nih.gov). Exemplos: Dificuldade em organizar tarefas ou manter o foco.</p>
         <ul>
             <li>Falta de atenção: Esquece detalhes ou se distrai facilmente.</li>
             <li>Hiperatividade: Movimento constante e dificuldade em ficar quieto.</li>
             <li>Impulsividade: Agir sem pensar nas consequências.</li>
         </ul>
-        <img src="https://source.unsplash.com/600x400/?mental-health" alt="Pessoa em meditação" /> <!-- Substitua por foto -->
+        <img src="https://source.unsplash.com/600x400/?mental-health" alt="Pessoa em meditação" />
     </section>
-    
+
     <section id="tratamentos" class="section">
         <h2>Tratamentos e Dicas</h2>
-        <p>Tratamentos para TDAH incluem terapia, medicação e estratégias de estilo de vida, conforme recomendado pela APA (psychiatry.org). Não substitua por auto-tratamento. Nossa "solução" é um guia complementar para gerenciamento diário.</p>
-        <p>Dicas: Pratique exercícios, use agendas e busque apoio profissional.</p>
-        <img src="https://source.unsplash.com/600x400/?exercise" alt="Exercícios para saúde mental" /> <!-- Substitua por foto -->
+        <p>Tratamentos incluem terapia, medicação e estratégias de estilo de vida, conforme recomendado por profissionais de saúde. Nosso e-book oferece formas seguras de melhorar o TDAH e gerenciar os sintomas no dia a dia.</p>
+        <img src="https://source.unsplash.com/600x400/?exercise" alt="Exercícios para saúde mental" />
     </section>
-    
+
     <section id="compre" class="section">
-        <h2>Compre Nossa Solução</h2>
-        <p>Adquira nossa solução acessível: um e-book ou guia digital sobre gerenciamento de TDAH, por apenas R$ 25! Inclui dicas práticas e exercícios. (Aviso: Esta solução não é um tratamento médico; consulte um profissional.)</p>
-        <a href="https://link-de-pagamento.com" class="button">Compre Agora por R$ 25</a> <!-- Substitua por um link real, ex.: PagSeguro -->
-        <p>*Pagamento via Mercado Pago ou similar. Após a compra, você receberá o material por e-mail.</p>
+        <h2>Compre Nosso E-book</h2>
+        <p>Adquira nosso e-book completo sobre TDAH por apenas R$ 25. Ele contém dicas práticas, exercícios e estratégias para gerenciar o TDAH de forma segura e eficaz.</p>
+        <a href="https://miguelluz2508.github.io/tdah-premium/ebook.pdf" class="button" target="_blank">Compre Agora por R$ 25</a>
+        <p>*Após o pagamento, você receberá o e-book instantaneamente. O material não substitui acompanhamento médico.</p>
     </section>
-    
+
     <footer>
-        <p>&copy; 2023 Seu Site sobre TDAH. Todos os direitos reservados. Baseado em fontes como ABDA. Política de Privacidade.</p>
+        <p>&copy; 2025 Seu Site sobre TDAH. Todos os direitos reservados. Baseado em fontes confiáveis como ABDA. Política de Privacidade.</p>
     </footer>
+
+    <script>
+        function aceitarTermos() {
+            document.getElementById("termosOverlay").style.display = "none";
+        }
+    </script>
 </body>
 </html>
