@@ -1,215 +1,139 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tudo sobre TDAH: Informações e Soluções</title>
-    <meta name="description" content="Saiba tudo sobre TDAH, sintomas, tratamentos e adquira nosso e-book por R$ 25. Baseado em fontes confiáveis como ABDA e WHO.">
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f8f9fa;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tudo sobre TDAH</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin:0;
+        padding:0;
+        background-color: #f0f4f8;
+    }
 
-        header {
-            background-color: #007BFF;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
+    /* Tela de termos */
+    #termosOverlay {
+        position: fixed;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        background-color: rgba(0,0,0,0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
 
-        nav {
-            background-color: #0056b3;
-            padding: 10px 0;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            border-radius: 5px;
-            margin: 10px auto;
-            max-width: 1200px;
-        }
+    #termosFrame {
+        background-color: #b0d4ff;
+        border-radius: 20px;
+        padding: 30px;
+        width: 90%;
+        max-width: 500px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        text-align: center;
+    }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 8px 15px;
-            border-radius: 5px;
-            transition: background-color 0.3s, transform 0.3s;
-        }
+    #termosBox {
+        background-color: white;
+        border-radius: 10px;
+        padding: 15px;
+        max-height: 250px;
+        overflow-y: auto;
+        margin-bottom: 20px;
+        font-size: 12px;
+        text-align: left;
+    }
 
-        nav a:hover {
-            background-color: #007BFF;
-            transform: scale(1.05);
-        }
+    #checkboxContainer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        gap: 10px;
+    }
 
-        .section {
-            padding: 20px;
-            margin: 20px auto;
-            max-width: 1200px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
+    #aceitarBtn {
+        background-color: #3cb371;
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+        opacity: 0.5; /* Desabilitado inicialmente */
+    }
 
-        h1, h2 {
-            color: #007BFF;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 5px;
-            margin: 10px 0;
-        }
-
-        .button {
-            background-color: #3cb371;
-            color: white;
-            padding: 15px 25px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            border-radius: 5px;
-            font-weight: bold;
-            margin: 20px 0;
-            transition: background-color 0.3s, transform 0.2s;
-        }
-
-        .button:hover {
-            background-color: #2e8b57;
-            transform: scale(1.05);
-        }
-
-        footer {
-            background-color: #007BFF;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-
-        /* Tela de Termos */
-        #termosOverlay {
-            position: fixed;
-            top:0;
-            left:0;
-            width:100%;
-            height:100%;
-            background-color: rgba(0,0,0,0.95);
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            z-index: 9999;
-            padding: 20px;
-        }
-
-        #termosBox {
-            max-width: 700px;
-            background-color: #007BFF;
-            padding: 30px;
-            border-radius: 10px;
-        }
-
-        #termosBox button {
-            background-color: #3cb371;
-            color: white;
-            padding: 12px 25px;
-            border: none;
-            border-radius: 5px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 20px;
-        }
-
-        #termosBox button:hover {
-            background-color: #2e8b57;
-        }
-    </style>
+    #aceitarBtn.enabled {
+        opacity: 1;
+    }
+</style>
 </head>
 <body>
-    <!-- Tela de Termos de Uso -->
-    <div id="termosOverlay">
+<!-- Overlay dos termos -->
+<div id="termosOverlay">
+    <div id="termosFrame">
+        <h2>Termos de Uso</h2>
         <div id="termosBox">
-            <h2>Termos de Uso do Site</h2>
-            <p>Ao acessar este site e adquirir nosso e-book, você concorda que todas as informações são apenas educativas. Este site e seus materiais não substituem acompanhamento médico. O usuário é responsável pelo uso seguro das informações.</p>
-            <p>Você só pode usar o site se aceitar estes termos.</p>
-            <button id="aceitarBtn">Aceito os Termos e Quero Acessar o Site</button>
+            Ao acessar este site e adquirir nosso e-book, você concorda que todas as informações fornecidas são apenas educativas. Este site e seus materiais **não substituem acompanhamento médico ou tratamento profissional**. O usuário é responsável pelo uso seguro das informações. <br><br>
+            Ao marcar a caixa e clicar em “Aceitar”, você reconhece que **não poderá processar o proprietário do site** por qualquer uso das informações aqui contidas.
         </div>
+        <div id="checkboxContainer">
+            <input type="checkbox" id="aceitarCheck">
+            <label for="aceitarCheck">Concordo com os termos e não processarei</label>
+        </div>
+        <button id="aceitarBtn" disabled>Aceitar</button>
     </div>
+</div>
 
-    <header>
-        <h1>Tudo sobre TDAH</h1>
-        <p>Entenda, Gerencie e Encontre Soluções Acessíveis</p>
-    </header>
+<!-- Conteúdo do site -->
+<header style="background-color:#007BFF;color:white;padding:20px;text-align:center;">
+    <h1>Tudo sobre TDAH</h1>
+</header>
 
-    <nav>
-        <a href="#inicio">Início</a>
-        <a href="#o-que-e">O que é TDAH?</a>
-        <a href="#sintomas">Sintomas</a>
-        <a href="#tratamentos">Tratamentos</a>
-        <a href="#compre">Compre a Solução</a>
-    </nav>
+<nav style="background-color:#0056b3;padding:10px;text-align:center;">
+    <a href="#inicio" style="color:white;margin:0 10px;">Início</a>
+    <a href="#o-que-e" style="color:white;margin:0 10px;">O que é TDAH?</a>
+    <a href="#sintomas" style="color:white;margin:0 10px;">Sintomas</a>
+    <a href="#tratamentos" style="color:white;margin:0 10px;">Tratamentos</a>
+    <a href="#compre" style="color:white;margin:0 10px;">Compre</a>
+</nav>
 
-    <section id="inicio" class="section">
-        <h2>Bem-vindo ao Site sobre TDAH</h2>
-        <p>Este site fornece informações completas sobre o Transtorno do Déficit de Atenção e Hiperatividade (TDAH), baseado em fontes confiáveis como a ABDA e a OMS. Aprenda sobre sintomas, causas e dicas de gerenciamento. Além disso, oferecemos um e-book prático por apenas R$ 25!</p>
-        <img src="https://source.unsplash.com/1200x600/?focus" alt="Imagem representando foco e concentração" />
-    </section>
+<section id="inicio" style="padding:20px;">
+    <h2>Bem-vindo</h2>
+    <p>Informações sobre TDAH e nosso e-book.</p>
+</section>
 
-    <section id="o-que-e" class="section">
-        <h2>O que é TDAH?</h2>
-        <p>TDAH é um transtorno neurodesenvolvimental que afeta a atenção, o comportamento e a impulsividade. Afeta cerca de 5-7% das crianças e 2-5% dos adultos no Brasil. Sintomas incluem dificuldade de concentração e hiperatividade.</p>
-        <p>Fonte: ABDA e WHO. Consulte um profissional de saúde para diagnóstico.</p>
-        <img src="https://source.unsplash.com/600x400/?brain" alt="Ilustração do cérebro" />
-    </section>
+<section id="compre" style="padding:20px;">
+    <h2>Compre o e-book</h2>
+    <a href="ebook.pdf" target="_blank" style="background-color:#3cb371;color:white;padding:10px 20px;border-radius:5px;text-decoration:none;">Baixar E-book</a>
+</section>
 
-    <section id="sintomas" class="section">
-        <h2>Sintomas e Impactos</h2>
-        <ul>
-            <li>Falta de atenção: Esquece detalhes ou se distrai facilmente.</li>
-            <li>Hiperatividade: Movimento constante e dificuldade em ficar quieto.</li>
-            <li>Impulsividade: Agir sem pensar nas consequências.</li>
-        </ul>
-        <img src="https://source.unsplash.com/600x400/?mental-health" alt="Pessoa em meditação" />
-    </section>
+<script>
+    const checkbox = document.getElementById('aceitarCheck');
+    const button = document.getElementById('aceitarBtn');
+    const overlay = document.getElementById('termosOverlay');
 
-    <section id="tratamentos" class="section">
-        <h2>Tratamentos e Dicas</h2>
-        <p>Tratamentos incluem terapia, medicação e estratégias de estilo de vida, conforme recomendado por profissionais de saúde. Nosso e-book oferece formas seguras de melhorar o TDAH e gerenciar os sintomas no dia a dia.</p>
-        <img src="https://source.unsplash.com/600x400/?exercise" alt="Exercícios para saúde mental" />
-    </section>
+    // Habilita o botão somente se a checkbox estiver marcada
+    checkbox.addEventListener('change', () => {
+        if(checkbox.checked){
+            button.disabled = false;
+            button.classList.add('enabled');
+        } else {
+            button.disabled = true;
+            button.classList.remove('enabled');
+        }
+    });
 
-    <section id="compre" class="section">
-        <h2>Compre Nosso E-book</h2>
-        <p>Adquira nosso e-book completo sobre TDAH por apenas R$ 25. Ele contém dicas práticas, exercícios e estratégias para gerenciar o TDAH de forma segura e eficaz.</p>
-        <a href="https://miguelluz2508.github.io/tdah-premium/ebook.pdf" class="button" target="_blank">Compre Agora por R$ 25</a>
-        <p>*Após o pagamento, você receberá o e-book instantaneamente. O material não substitui acompanhamento médico.</p>
-    </section>
+    // Ao clicar no botão
+    button.addEventListener('click', () => {
+        overlay.style.display = 'none';
+    });
 
-    <footer>
-        <p>&copy; 2025 Seu Site sobre TDAH. Todos os direitos reservados. Baseado em fontes confiáveis como ABDA. Política de Privacidade.</p>
-    </footer>
-
-    <script>
-        const btn = document.getElementById("aceitarBtn");
-        const overlay = document.getElementById("termosOverlay");
-
-        btn.addEventListener("click", () => {
-            overlay.style.display = "none"; // Oculta o overlay ao aceitar
-            document.body.style.overflow = "auto"; // Libera rolagem
-        });
-
-        // Bloqueia rolagem enquanto o overlay estiver ativo
-        document.body.style.overflow = "hidden";
-    </script>
+    // Bloqueia rolagem enquanto os termos não forem aceitos
+    document.body.style.overflow = 'hidden';
+</script>
 </body>
 </html>
