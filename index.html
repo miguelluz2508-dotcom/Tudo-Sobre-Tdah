@@ -12,26 +12,29 @@
       margin: 0;
       padding: 0;
     }
+
     header {
       background: linear-gradient(90deg, #007bff, #0056b3);
       color: white;
       text-align: center;
       padding: 25px;
-      border-bottom-left-radius: 15px;
-      border-bottom-right-radius: 15px;
+      border-radius: 0px; /* HEADER QUADRADO */
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
+
     nav {
       background-color: #0056b3;
       text-align: center;
       padding: 10px;
     }
+
     nav a {
       color: white;
       text-decoration: none;
       margin: 0 15px;
       font-weight: bold;
     }
+
     .section {
       max-width: 1000px;
       background-color: white;
@@ -40,16 +43,19 @@
       margin: 25px auto;
       padding: 25px;
     }
+
     h1, h2 {
       color: #007bff;
     }
+
     img {
       max-width: 100%;
       border-radius: 10px;
       margin: 10px 0;
     }
+
     .button {
-      background-color: #2f9e44;
+      background-color: #3cb371;
       color: white;
       padding: 15px 25px;
       border-radius: 8px;
@@ -58,10 +64,12 @@
       display: inline-block;
       transition: 0.3s;
     }
+
     .button:hover {
-      background-color: #22863a;
+      background-color: #2e8b57;
       transform: scale(1.05);
     }
+
     footer {
       background-color: #007bff;
       color: white;
@@ -84,6 +92,7 @@
       align-items: center;
       z-index: 9999;
     }
+
     .termos-caixa {
       background-color: #007bff;
       border-radius: 20px;
@@ -92,6 +101,7 @@
       max-width: 500px;
       box-shadow: 0 0 20px rgba(255,255,255,0.2);
     }
+
     .checkbox-container {
       margin-top: 20px;
       display: flex;
@@ -99,14 +109,17 @@
       justify-content: center;
       gap: 10px;
     }
+
     .checkbox-container input {
       width: 20px;
       height: 20px;
       cursor: pointer;
     }
+
     .checkbox-container label {
       font-size: 15px;
     }
+
     #aceitarBtn {
       background-color: #28a745;
       color: white;
@@ -119,10 +132,12 @@
       margin-top: 20px;
       transition: 0.3s;
     }
+
     #aceitarBtn.ativo {
       cursor: pointer;
       opacity: 1;
     }
+
     .disclaimer {
       font-size: 12px;
       margin-top: 15px;
@@ -154,7 +169,9 @@
   <nav>
     <a href="#inicio">Início</a>
     <a href="#tdah">O que é TDAH?</a>
-    <a href="#ebook">Baixar E-book</a>
+    <a href="#sintomas">Sintomas e Impactos</a>
+    <a href="#tratamentos">Tratamentos e Dicas</a>
+    <a href="#ebook">Baixe o E-book</a>
   </nav>
 
   <section id="inicio" class="section">
@@ -169,9 +186,25 @@
       Com estratégias corretas, é possível viver bem e manter o foco.</p>
   </section>
 
+  <section id="sintomas" class="section">
+    <h2>Sintomas e Impactos</h2>
+    <p>Os sintomas incluem desatenção, hiperatividade e impulsividade. Eles podem afetar escola, trabalho e relações pessoais.</p>
+    <ul>
+      <li>Falta de atenção</li>
+      <li>Hiperatividade</li>
+      <li>Impulsividade</li>
+    </ul>
+  </section>
+
+  <section id="tratamentos" class="section">
+    <h2>Tratamentos e Dicas</h2>
+    <p>Existem várias estratégias educativas e saudáveis que ajudam a conviver melhor com o TDAH. Para saber mais, baixe o E-book — temos a solução!</p>
+    <a href="https://raw.githubusercontent.com/miguelluz2508-dotcom/Tudo-Sobre-Tdah/main/Guia_Completo_TDAH.pdf" class="button" target="_blank">Baixar E-book</a>
+  </section>
+
   <section id="ebook" class="section">
-    <h2>Baixe o E-book Grátis</h2>
-    <p>Nosso e-book explica como gerenciar o TDAH com métodos saudáveis e eficazes — baseado em informações de fontes confiáveis.</p>
+    <h2>E-book Completo</h2>
+    <p>Nosso e-book explica tudo sobre TDAH, sintomas, impactos e soluções educativas. Baixe gratuitamente!</p>
     <a href="https://raw.githubusercontent.com/miguelluz2508-dotcom/Tudo-Sobre-Tdah/main/Guia_Completo_TDAH.pdf" class="button" target="_blank">Baixar E-book Grátis</a>
   </section>
 
