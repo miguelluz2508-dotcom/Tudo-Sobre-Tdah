@@ -13,12 +13,13 @@
       padding: 0;
     }
 
+    /* HEADER QUADRADO */
     header {
       background: linear-gradient(90deg, #007bff, #0056b3);
       color: white;
       text-align: center;
       padding: 25px;
-      border-radius: 0px; /* HEADER QUADRADO */
+      border-radius: 0;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
 
@@ -78,15 +79,14 @@
       margin-top: 20px;
     }
 
-    /* Tela de Termos */
+    /* TELA DE TERMOS PREMIUM */
     #termosOverlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 50, 0.95);
-      color: white;
+      background-color: rgba(0,0,50,0.85);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -94,42 +94,54 @@
     }
 
     .termos-caixa {
-      background-color: #007bff;
-      border-radius: 20px;
-      padding: 30px;
+      background-color: #cce5ff;
+      border-radius: 25px;
+      padding: 35px;
       text-align: center;
-      max-width: 500px;
-      box-shadow: 0 0 20px rgba(255,255,255,0.2);
+      max-width: 550px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .termos-caixa h2 {
+      margin-bottom: 15px;
+      color: #004085;
+    }
+
+    .termos-caixa p {
+      font-size: 14px;
+      color: #004085;
+      margin-bottom: 15px;
     }
 
     .checkbox-container {
-      margin-top: 20px;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
+      margin-bottom: 20px;
     }
 
     .checkbox-container input {
-      width: 20px;
-      height: 20px;
+      width: 22px;
+      height: 22px;
       cursor: pointer;
     }
 
     .checkbox-container label {
       font-size: 15px;
+      color: #004085;
     }
 
     #aceitarBtn {
       background-color: #28a745;
       color: white;
-      padding: 12px 30px;
+      padding: 14px 35px;
       border: none;
-      border-radius: 8px;
+      border-radius: 12px;
       font-size: 16px;
       cursor: not-allowed;
       opacity: 0.5;
-      margin-top: 20px;
       transition: 0.3s;
     }
 
@@ -138,19 +150,24 @@
       opacity: 1;
     }
 
+    #aceitarBtn:hover.ativo {
+      background-color: #218838;
+    }
+
     .disclaimer {
       font-size: 12px;
       margin-top: 15px;
-      color: #d9d9d9;
+      color: #004085;
     }
   </style>
 </head>
 <body>
 
-  <!-- Tela de Termos -->
+  <!-- TELA DE TERMOS -->
   <div id="termosOverlay">
     <div class="termos-caixa">
       <h2>Termos de Uso</h2>
+      <p>Antes de acessar o site, você precisa concordar com os termos abaixo:</p>
       <div class="checkbox-container">
         <input type="checkbox" id="concordo">
         <label for="concordo">Concorde com os Termos de Uso para Entrar no Site</label>
@@ -160,7 +177,7 @@
     </div>
   </div>
 
-  <!-- Site principal -->
+  <!-- SITE PRINCIPAL -->
   <header>
     <h1>Tudo sobre TDAH</h1>
     <p>Informações, Dicas e Soluções Educativas</p>
@@ -171,7 +188,7 @@
     <a href="#tdah">O que é TDAH?</a>
     <a href="#sintomas">Sintomas e Impactos</a>
     <a href="#tratamentos">Tratamentos e Dicas</a>
-    <a href="#ebook">Baixe o E-book</a>
+    <a href="#ebook">E-book Completo</a>
   </nav>
 
   <section id="inicio" class="section">
@@ -198,8 +215,9 @@
 
   <section id="tratamentos" class="section">
     <h2>Tratamentos e Dicas</h2>
-    <p>Existem várias estratégias educativas e saudáveis que ajudam a conviver melhor com o TDAH. Para saber mais, baixe o E-book — temos a solução!</p>
-    <a href="https://raw.githubusercontent.com/miguelluz2508-dotcom/Tudo-Sobre-Tdah/main/Guia_Completo_TDAH.pdf" class="button" target="_blank">Baixar E-book</a>
+    <p><strong>Tratamento:</strong> Manter uma rotina diária estruturada.</p>
+    <p><strong>Dicas:</strong> 1) Use lembretes e agendas; 2) Faça pausas curtas para descanso.</p>
+    <p><em>Para saber mais, baixe o E-book — temos a solução!</em></p>
   </section>
 
   <section id="ebook" class="section">
@@ -241,4 +259,5 @@
 
 </body>
 </html>
+
 
