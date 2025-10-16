@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tudo sobre TDAH: Informações e Soluções</title>
-    <meta name="description" content="Saiba tudo sobre TDAH, sintomas, tratamentos e compre nossa solução acessível por R$ 25. Baseado em fontes confiáveis como ABDA e WHO.">
+    <meta name="description" content="Saiba tudo sobre TDAH, sintomas, tratamentos e adquira nosso e-book por R$ 25. Baseado em fontes confiáveis como ABDA e WHO.">
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -102,22 +102,21 @@
             left:0;
             width:100%;
             height:100%;
-            background-color: rgba(0,0,0,0.85);
+            background-color: rgba(0,0,0,0.95);
             color: white;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 20px;
             z-index: 9999;
-            overflow-y: auto;
+            padding: 20px;
         }
 
         #termosBox {
+            max-width: 700px;
             background-color: #007BFF;
             padding: 30px;
             border-radius: 10px;
-            max-width: 700px;
         }
 
         #termosBox button {
@@ -141,9 +140,9 @@
     <div id="termosOverlay">
         <div id="termosBox">
             <h2>Termos de Uso do Site</h2>
-            <p>Ao acessar este site e adquirir nosso e-book, você concorda que todas as informações são apenas para fins educativos. Este site e seus materiais não substituem acompanhamento médico ou tratamento profissional. O usuário é responsável por utilizar as informações de forma segura e adequada.</p>
-            <p>Você só pode usar o site se aceitar estes termos. Não nos responsabilizamos por qualquer uso incorreto ou consequências de aplicar as dicas sem supervisão profissional.</p>
-            <button onclick="aceitarTermos()">Aceito os Termos e Quero Acessar o Site</button>
+            <p>Ao acessar este site e adquirir nosso e-book, você concorda que todas as informações são apenas educativas. Este site e seus materiais não substituem acompanhamento médico. O usuário é responsável pelo uso seguro das informações.</p>
+            <p>Você só pode usar o site se aceitar estes termos.</p>
+            <button id="aceitarBtn">Aceito os Termos e Quero Acessar o Site</button>
         </div>
     </div>
 
@@ -201,9 +200,16 @@
     </footer>
 
     <script>
-        function aceitarTermos() {
-            document.getElementById("termosOverlay").style.display = "none";
-        }
+        const btn = document.getElementById("aceitarBtn");
+        const overlay = document.getElementById("termosOverlay");
+
+        btn.addEventListener("click", () => {
+            overlay.style.display = "none"; // Oculta o overlay ao aceitar
+            document.body.style.overflow = "auto"; // Libera rolagem
+        });
+
+        // Bloqueia rolagem enquanto o overlay estiver ativo
+        document.body.style.overflow = "hidden";
     </script>
 </body>
 </html>
