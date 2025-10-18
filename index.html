@@ -4,6 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tudo sobre TDAH</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Tudo sobre TDAH — Aprenda sobre sintomas, causas e soluções educativas. Baixe nosso e-book gratuito.">
+  <meta name="keywords" content="TDAH, Déficit de Atenção, Hiperatividade, foco, educação, e-book gratuito">
+  <meta name="author" content="Tudo sobre TDAH">
+
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -11,6 +17,10 @@
       color: #333;
       margin: 0;
       padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     /* HEADER QUADRADO */
@@ -91,6 +101,7 @@
       justify-content: center;
       align-items: center;
       z-index: 9999;
+      transition: opacity 0.5s ease;
     }
 
     .termos-caixa {
@@ -159,6 +170,23 @@
       margin-top: 15px;
       color: #004085;
     }
+
+    /* MODO ESCURO AUTOMÁTICO */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #121212;
+        color: #e0e0e0;
+      }
+      .section {
+        background-color: #1e1e1e;
+      }
+      header, nav, footer {
+        background: #0d47a1;
+      }
+      nav a {
+        color: #fff;
+      }
+    }
   </style>
 </head>
 <body>
@@ -191,40 +219,42 @@
     <a href="#ebook">E-book Completo</a>
   </nav>
 
-  <section id="inicio" class="section">
-    <h2>Bem-vindo!</h2>
-    <p>Aprenda sobre o Transtorno de Déficit de Atenção e Hiperatividade (TDAH), seus sintomas, causas e formas de melhorar o foco e o bem-estar sem prejudicar o paciente.</p>
-    <img src="https://source.unsplash.com/1200x500/?focus,brain" alt="Foco e concentração">
-  </section>
+  <main>
+    <section id="inicio" class="section">
+      <h2>Bem-vindo!</h2>
+      <p>Aprenda sobre o Transtorno de Déficit de Atenção e Hiperatividade (TDAH), seus sintomas, causas e formas de melhorar o foco e o bem-estar sem prejudicar o paciente.</p>
+      <img src="https://source.unsplash.com/1200x500/?focus,brain" alt="Foco e concentração">
+    </section>
 
-  <section id="tdah" class="section">
-    <h2>O que é TDAH?</h2>
-    <p>TDAH é um transtorno que afeta atenção, comportamento e impulsividade. Estudos da ABDA e OMS indicam que entre 5% e 7% das crianças e até 5% dos adultos apresentam sintomas. 
-      Com estratégias corretas, é possível viver bem e manter o foco.</p>
-  </section>
+    <section id="tdah" class="section">
+      <h2>O que é TDAH?</h2>
+      <p>TDAH é um transtorno que afeta atenção, comportamento e impulsividade. Estudos da ABDA e OMS indicam que entre 5% e 7% das crianças e até 5% dos adultos apresentam sintomas. 
+        Com estratégias corretas, é possível viver bem e manter o foco.</p>
+    </section>
 
-  <section id="sintomas" class="section">
-    <h2>Sintomas e Impactos</h2>
-    <p>Os sintomas incluem desatenção, hiperatividade e impulsividade. Eles podem afetar escola, trabalho e relações pessoais.</p>
-    <ul>
-      <li>Falta de atenção</li>
-      <li>Hiperatividade</li>
-      <li>Impulsividade</li>
-    </ul>
-  </section>
+    <section id="sintomas" class="section">
+      <h2>Sintomas e Impactos</h2>
+      <p>Os sintomas incluem desatenção, hiperatividade e impulsividade. Eles podem afetar escola, trabalho e relações pessoais.</p>
+      <ul>
+        <li>Falta de atenção</li>
+        <li>Hiperatividade</li>
+        <li>Impulsividade</li>
+      </ul>
+    </section>
 
-  <section id="tratamentos" class="section">
-    <h2>Tratamentos e Dicas</h2>
-    <p><strong>Tratamento:</strong> Manter uma rotina diária estruturada.</p>
-    <p><strong>Dicas:</strong> 1) Use lembretes e agendas; 2) Faça pausas curtas para descanso.</p>
-    <p><em>Para saber mais, baixe o E-book — temos a solução!</em></p>
-  </section>
+    <section id="tratamentos" class="section">
+      <h2>Tratamentos e Dicas</h2>
+      <p><strong>Tratamento:</strong> Manter uma rotina diária estruturada.</p>
+      <p><strong>Dicas:</strong> 1) Use lembretes e agendas; 2) Faça pausas curtas para descanso.</p>
+      <p><em>Para saber mais, baixe o E-book — temos a solução!</em></p>
+    </section>
 
-  <section id="ebook" class="section">
-    <h2>E-book Completo</h2>
-    <p>Nosso e-book explica tudo sobre TDAH, sintomas, impactos e soluções educativas. Baixe gratuitamente!</p>
-    <a href="https://raw.githubusercontent.com/miguelluz2508-dotcom/Tudo-Sobre-Tdah/main/Guia_Completo_TDAH.pdf" class="button" target="_blank">Baixar E-book Grátis</a>
-  </section>
+    <section id="ebook" class="section">
+      <h2>E-book Completo</h2>
+      <p>Nosso e-book explica tudo sobre TDAH, sintomas, impactos e soluções educativas. Baixe gratuitamente!</p>
+      <a href="https://raw.githubusercontent.com/miguelluz2508-dotcom/Tudo-Sobre-Tdah/main/Guia_Completo_TDAH.pdf" class="button" target="_blank">📘 Baixar E-book Grátis</a>
+    </section>
+  </main>
 
   <footer>
     <p>&copy; 2025 Tudo sobre TDAH — Uso educativo. Consulte sempre um profissional.</p>
@@ -249,8 +279,11 @@
 
     btn.addEventListener('click', () => {
       if (checkbox.checked) {
-        overlay.style.display = 'none';
-        document.body.style.overflow = 'auto';
+        overlay.style.opacity = "0";
+        setTimeout(() => {
+          overlay.style.display = 'none';
+          document.body.style.overflow = 'auto';
+        }, 500);
       }
     });
 
