@@ -43,7 +43,6 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       margin: 25px auto;
       padding: 25px;
-      position: relative;
     }
 
     h1, h2 {
@@ -196,8 +195,8 @@
     <h2>Bem-vindo!</h2>
     <p>Aprenda sobre o Transtorno de Déficit de Atenção e Hiperatividade (TDAH), seus sintomas, causas e formas de melhorar o foco e o bem-estar sem prejudicar o paciente.</p>
     <img src="https://source.unsplash.com/1200x500/?focus,brain" alt="Foco e concentração">
-    <!-- Contador de visitantes no canto inferior direito -->
-    <p id="contadorVisitantes" style="position:absolute; bottom:10px; right:10px; font-size:14px; color:#555;"></p>
+    <!-- Contador de visitantes -->
+    <div id="contadorVisitantes" style="text-align:right; margin-top:10px; font-weight:bold; color:#007bff;"></div>
   </section>
 
   <section id="tdah" class="section">
@@ -227,8 +226,8 @@
     <h2>E-book Completo</h2>
     <p>Nosso e-book explica tudo sobre TDAH, sintomas, impactos e soluções educativas. Baixe gratuitamente!</p>
     <a href="https://raw.githubusercontent.com/miguelluz2508-dotcom/Tudo-Sobre-Tdah/main/Guia_Completo_TDAH.pdf" class="button" target="_blank">Baixar E-book Grátis</a>
-    <!-- Contador de downloads abaixo do botão -->
-    <p id="contadorDownloads" style="text-align:center; font-size:14px; color:#555; margin-top:5px;"></p>
+    <!-- Contador de downloads -->
+    <div id="contadorDownloads" style="text-align:right; margin-top:10px; font-weight:bold; color:#007bff;"></div>
   </section>
 
   <footer>
@@ -236,7 +235,6 @@
   </footer>
 
   <script>
-    // Termos de uso
     const checkbox = document.getElementById('concordo');
     const btn = document.getElementById('aceitarBtn');
     const overlay = document.getElementById('termosOverlay');
@@ -262,16 +260,20 @@
 
     document.body.style.overflow = 'hidden';
 
-    // Contadores
+    // ================= Contadores =================
     async function atualizarContadores() {
       try {
-        // Visitantes
-        const respVisitantes = await fetch('https://api.countapi.xyz/hit/miguelluz2508-dotcom/visitas');
+        // Visitantes únicos
+        if (!localStorage.getItem('visitante_contado')) {
+          await fetch('https://api.countapi.xyz/hit/miguelluz2508-dotcom/visitas');
+          localStorage.setItem('visitante_contado', 'true');
+        }
+        const respVisitantes = await fetch('https://api.countapi.xyz/get/miguelluz2508-dotcom/visitas');
         const dataVisitantes = await respVisitantes.json();
         document.getElementById('contadorVisitantes').textContent = dataVisitantes.value + ' Pessoas já acessaram este site!';
 
         // Downloads
-        const respDownloads = await fetch('https://api.countapi.xyz/hit/miguelluz2508-dotcom/downloads');
+        const respDownloads = await fetch('https://api.countapi.xyz/get/miguelluz2508-dotcom/downloads');
         const dataDownloads = await respDownloads.json();
         document.getElementById('contadorDownloads').textContent = dataDownloads.value + ' Pessoas já baixaram o e-book!';
       } catch (e) {
@@ -279,19 +281,22 @@
       }
     }
 
-    setInterval(atualizarContadores, 1000);
-    atualizarContadores();
-
-    // Incrementar downloads ao clicar no botão
+    // Incrementar downloads apenas uma vez por visitante
     const botaoEbook = document.querySelector('#ebook .button');
     botaoEbook.addEventListener('click', async () => {
       try {
-        await fetch('https://api.countapi.xyz/hit/miguelluz2508-dotcom/downloads');
+        if (!localStorage.getItem('download_contado')) {
+          await fetch('https://api.countapi.xyz/hit/miguelluz2508-dotcom/downloads');
+          localStorage.setItem('download_contado', 'true');
+        }
         atualizarContadores();
       } catch (e) {
         console.error('Erro ao contar download', e);
       }
     });
+
+    setInterval(atualizarContadores, 1000);
+    atualizarContadores();
   </script>
 
 </body>
