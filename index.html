@@ -4,12 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tudo sobre TDAH</title>
-
-  <!-- SEO -->
   <meta name="description" content="Tudo sobre TDAH — Aprenda sobre sintomas, causas e soluções educativas. Baixe nosso e-book gratuito.">
   <meta name="keywords" content="TDAH, Déficit de Atenção, Hiperatividade, foco, educação, e-book gratuito">
   <meta name="author" content="Tudo sobre TDAH">
-
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -17,161 +14,124 @@
       color: #333;
       margin: 0;
       padding: 0;
-    }
-
-    html {
       scroll-behavior: smooth;
     }
 
-    /* HEADER QUADRADO */
     header {
-      background: linear-gradient(90deg, #007bff, #0056b3);
+      background-color: #1565c0;
       color: white;
       text-align: center;
-      padding: 25px;
-      border-radius: 0;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      padding: 20px;
     }
 
     nav {
-      background-color: #0056b3;
-      text-align: center;
-      padding: 10px;
+      background-color: #0d47a1;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 10px 0;
     }
 
     nav a {
       color: white;
       text-decoration: none;
-      margin: 0 15px;
       font-weight: bold;
-    }
-
-    .section {
-      max-width: 1000px;
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      margin: 25px auto;
-      padding: 25px;
-    }
-
-    h1, h2 {
-      color: #007bff;
-    }
-
-    img {
-      max-width: 100%;
-      border-radius: 10px;
-      margin: 10px 0;
-    }
-
-    .button {
-      background-color: #3cb371;
-      color: white;
-      padding: 15px 25px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      display: inline-block;
       transition: 0.3s;
     }
 
-    .button:hover {
-      background-color: #2e8b57;
-      transform: scale(1.05);
+    nav a:hover {
+      text-decoration: underline;
+      color: #bbdefb;
+    }
+
+    .section {
+      max-width: 900px;
+      margin: 40px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      color: #0d47a1;
+      border-bottom: 2px solid #1565c0;
+      padding-bottom: 8px;
     }
 
     footer {
-      background-color: #007bff;
-      color: white;
       text-align: center;
-      padding: 10px;
-      margin-top: 20px;
+      padding: 20px;
+      background-color: #1565c0;
+      color: white;
+      margin-top: 40px;
     }
 
-    /* TELA DE TERMOS PREMIUM */
+    .button {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #1565c0;
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: 0.3s;
+      font-weight: bold;
+    }
+
+    .button:hover {
+      background-color: #0d47a1;
+    }
+
+    /* Tela de termos de uso */
     #termosOverlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0,0,50,0.85);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-      transition: opacity 0.5s ease;
-    }
-
-    .termos-caixa {
-      background-color: #cce5ff;
-      border-radius: 25px;
-      padding: 35px;
-      text-align: center;
-      max-width: 550px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-      font-family: 'Segoe UI', sans-serif;
-    }
-
-    .termos-caixa h2 {
-      margin-bottom: 15px;
-      color: #004085;
-    }
-
-    .termos-caixa p {
-      font-size: 14px;
-      color: #004085;
-      margin-bottom: 15px;
-    }
-
-    .checkbox-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-
-    .checkbox-container input {
-      width: 22px;
-      height: 22px;
-      cursor: pointer;
-    }
-
-    .checkbox-container label {
-      font-size: 15px;
-      color: #004085;
-    }
-
-    #aceitarBtn {
-      background-color: #28a745;
+      background: rgba(13, 71, 161, 0.95);
       color: white;
-      padding: 14px 35px;
-      border: none;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transition: opacity 0.8s ease;
+    }
+
+    #termosBox {
+      background: white;
+      color: #333;
+      padding: 25px;
       border-radius: 12px;
-      font-size: 16px;
+      max-width: 500px;
+      text-align: left;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    }
+
+    #termosBox h2 {
+      text-align: center;
+      color: #0d47a1;
+    }
+
+    #termosBox button {
+      background: #1565c0;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      margin-top: 15px;
       cursor: not-allowed;
       opacity: 0.5;
-      transition: 0.3s;
+      transition: all 0.3s ease;
     }
 
-    #aceitarBtn.ativo {
+    #termosBox button.ativo {
       cursor: pointer;
       opacity: 1;
     }
 
-    #aceitarBtn:hover.ativo {
-      background-color: #218838;
-    }
-
-    .disclaimer {
-      font-size: 12px;
-      margin-top: 15px;
-      color: #004085;
-    }
-
-    /* MODO ESCURO AUTOMÁTICO */
     @media (prefers-color-scheme: dark) {
       body {
         background-color: #121212;
@@ -183,81 +143,69 @@
       header, nav, footer {
         background: #0d47a1;
       }
-      nav a {
-        color: #fff;
-      }
     }
   </style>
 </head>
 <body>
 
-  <!-- TELA DE TERMOS -->
+  <!-- Tela de Termos -->
   <div id="termosOverlay">
-    <div class="termos-caixa">
+    <div id="termosBox">
       <h2>Termos de Uso</h2>
-      <p>Antes de acessar o site, você precisa concordar com os termos abaixo:</p>
-      <div class="checkbox-container">
-        <input type="checkbox" id="concordo">
-        <label for="concordo">Concorde com os Termos de Uso para Entrar no Site</label>
-      </div>
-      <button id="aceitarBtn">Aceitar e Entrar</button>
-      <p class="disclaimer">Ao concordar, você entende que este site é apenas educativo e não substitui tratamento médico. Você não poderá processar o criador por uso indevido das informações.</p>
+      <p>Este site tem como objetivo informar sobre o TDAH de forma educativa e gratuita. Ao prosseguir, você concorda em utilizar o conteúdo apenas para fins de aprendizado e conscientização.</p>
+      <label><input type="checkbox" id="concordo"> Concordo com os termos</label><br>
+      <button id="aceitarBtn" disabled>Aceitar e Entrar</button>
     </div>
   </div>
 
-  <!-- SITE PRINCIPAL -->
   <header>
     <h1>Tudo sobre TDAH</h1>
-    <p>Informações, Dicas e Soluções Educativas</p>
   </header>
 
   <nav>
-    <a href="#inicio">Início</a>
-    <a href="#tdah">O que é TDAH?</a>
-    <a href="#sintomas">Sintomas e Impactos</a>
-    <a href="#tratamentos">Tratamentos e Dicas</a>
-    <a href="#ebook">E-book Completo</a>
+    <a href="#sobre">O que é</a>
+    <a href="#sintomas">Sintomas</a>
+    <a href="#causas">Causas</a>
+    <a href="#tratamento">Tratamento</a>
+    <a href="#ebook">E-book</a>
   </nav>
 
   <main>
-    <section id="inicio" class="section">
-      <h2>Bem-vindo!</h2>
-      <p>Aprenda sobre o Transtorno de Déficit de Atenção e Hiperatividade (TDAH), seus sintomas, causas e formas de melhorar o foco e o bem-estar sem prejudicar o paciente.</p>
-      <img src="https://source.unsplash.com/1200x500/?focus,brain" alt="Foco e concentração">
-    </section>
-
-    <section id="tdah" class="section">
+    <section id="sobre" class="section">
       <h2>O que é TDAH?</h2>
-      <p>TDAH é um transtorno que afeta atenção, comportamento e impulsividade. Estudos da ABDA e OMS indicam que entre 5% e 7% das crianças e até 5% dos adultos apresentam sintomas. 
-        Com estratégias corretas, é possível viver bem e manter o foco.</p>
+      <p>O Transtorno de Déficit de Atenção e Hiperatividade (TDAH) é uma condição neurobiológica caracterizada por desatenção, impulsividade e hiperatividade. Ele pode afetar crianças, adolescentes e adultos.</p>
     </section>
 
     <section id="sintomas" class="section">
-      <h2>Sintomas e Impactos</h2>
-      <p>Os sintomas incluem desatenção, hiperatividade e impulsividade. Eles podem afetar escola, trabalho e relações pessoais.</p>
+      <h2>Sintomas</h2>
       <ul>
-        <li>Falta de atenção</li>
-        <li>Hiperatividade</li>
+        <li>Dificuldade em manter o foco</li>
+        <li>Esquecimento frequente</li>
         <li>Impulsividade</li>
+        <li>Agitação constante</li>
+        <li>Dificuldade em organizar tarefas</li>
       </ul>
     </section>
 
-    <section id="tratamentos" class="section">
-      <h2>Tratamentos e Dicas</h2>
-      <p><strong>Tratamento:</strong> Manter uma rotina diária estruturada.</p>
-      <p><strong>Dicas:</strong> 1) Use lembretes e agendas; 2) Faça pausas curtas para descanso.</p>
-      <p><em>Para saber mais, baixe o E-book — temos a solução!</em></p>
+    <section id="causas" class="section">
+      <h2>Causas</h2>
+      <p>As causas do TDAH envolvem fatores genéticos, ambientais e neurológicos. Estudos mostram que há uma forte influência hereditária no desenvolvimento do transtorno.</p>
+    </section>
+
+    <section id="tratamento" class="section">
+      <h2>Tratamento</h2>
+      <p>O tratamento pode incluir acompanhamento psicológico, uso de medicamentos e estratégias comportamentais. O diagnóstico deve ser feito por um profissional especializado.</p>
     </section>
 
     <section id="ebook" class="section">
-      <h2>E-book Completo</h2>
-      <p>Nosso e-book explica tudo sobre TDAH, sintomas, impactos e soluções educativas. Baixe gratuitamente!</p>
-      <a href="https://raw.githubusercontent.com/miguelluz2508-dotcom/Tudo-Sobre-Tdah/main/Guia_Completo_TDAH.pdf" class="button" target="_blank">📘 Baixar E-book Grátis</a>
+      <h2>Baixe o E-book Gratuito 📘</h2>
+      <p>Quer aprender mais sobre TDAH? Baixe nosso e-book completo e gratuito clicando no botão abaixo:</p>
+      <a href="https://github.com/miguelhenriqtdah/ebook-tdah/blob/main/Tudo%20sobre%20TDAH.pdf" class="button" target="_blank">📘 Baixar E-book Grátis</a>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 Tudo sobre TDAH — Uso educativo. Consulte sempre um profissional.</p>
+    <p>&copy; 2025 Tudo sobre TDAH — Todos os direitos reservados.</p>
   </footer>
 
   <script>
@@ -265,6 +213,7 @@
     const btn = document.getElementById('aceitarBtn');
     const overlay = document.getElementById('termosOverlay');
 
+    // Ativa o botão quando marcar o checkbox
     checkbox.addEventListener('change', () => {
       if (checkbox.checked) {
         btn.classList.add('ativo');
@@ -277,16 +226,18 @@
       }
     });
 
+    // Transição suave ao fechar a tela de termos
     btn.addEventListener('click', () => {
       if (checkbox.checked) {
-        overlay.style.opacity = "0";
+        overlay.style.opacity = "0"; // fade out
         setTimeout(() => {
-          overlay.style.display = 'none';
-          document.body.style.overflow = 'auto';
-        }, 500);
+          overlay.style.display = "none";
+          document.body.style.overflow = "auto";
+        }, 800); // espera a animação acabar
       }
     });
 
+    // Impede scroll enquanto a tela de termos estiver ativa
     document.body.style.overflow = 'hidden';
   </script>
 
