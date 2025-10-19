@@ -13,6 +13,7 @@
       padding: 0;
     }
 
+    /* HEADER QUADRADO */
     header {
       background: linear-gradient(90deg, #007bff, #0056b3);
       color: white;
@@ -78,6 +79,7 @@
       margin-top: 20px;
     }
 
+    /* TELA DE TERMOS PREMIUM */
     #termosOverlay {
       position: fixed;
       top: 0;
@@ -101,6 +103,17 @@
       font-family: 'Segoe UI', sans-serif;
     }
 
+    .termos-caixa h2 {
+      margin-bottom: 15px;
+      color: #004085;
+    }
+
+    .termos-caixa p {
+      font-size: 14px;
+      color: #004085;
+      margin-bottom: 15px;
+    }
+
     .checkbox-container {
       display: flex;
       align-items: center;
@@ -113,6 +126,11 @@
       width: 22px;
       height: 22px;
       cursor: pointer;
+    }
+
+    .checkbox-container label {
+      font-size: 15px;
+      color: #004085;
     }
 
     #aceitarBtn {
@@ -142,26 +160,21 @@
       color: #004085;
     }
 
-    /* Estilo dos contadores */
-    .contador {
-      color: #007bff;
-      font-weight: bold;
-      font-size: 16px;
-      margin-top: 8px;
-    }
-
-    .ebook-container {
+    /* Contadores lado direito */
+    .counter-container {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-end;
       gap: 10px;
-      flex-wrap: wrap;
+      margin-top: 10px;
+      font-weight: bold;
+      color: #333;
     }
   </style>
 </head>
 <body>
 
-  <!-- TERMOS -->
+  <!-- TELA DE TERMOS -->
   <div id="termosOverlay">
     <div class="termos-caixa">
       <h2>Termos de Uso</h2>
@@ -175,7 +188,7 @@
     </div>
   </div>
 
-  <!-- SITE -->
+  <!-- SITE PRINCIPAL -->
   <header>
     <h1>Tudo sobre TDAH</h1>
     <p>Informações, Dicas e Soluções Educativas</p>
@@ -193,7 +206,10 @@
     <h2>Bem-vindo!</h2>
     <p>Aprenda sobre o Transtorno de Déficit de Atenção e Hiperatividade (TDAH), seus sintomas, causas e formas de melhorar o foco e o bem-estar sem prejudicar o paciente.</p>
     <img src="https://source.unsplash.com/1200x500/?focus,brain" alt="Foco e concentração">
-    <p class="contador" id="contadorVisitas">Carregando visitantes...</p>
+    <!-- Contador de visitantes -->
+    <div class="counter-container">
+      <span id="visitorCounter">Carregando visitantes...</span>
+    </div>
   </section>
 
   <section id="tdah" class="section">
@@ -222,9 +238,9 @@
   <section id="ebook" class="section">
     <h2>E-book Completo</h2>
     <p>Nosso e-book explica tudo sobre TDAH, sintomas, impactos e soluções educativas. Baixe gratuitamente!</p>
-    <div class="ebook-container">
-      <a href="https://raw.githubusercontent.com/miguelluz2508-dotcom/Tudo-Sobre-Tdah/main/Guia_Completo_TDAH.pdf" class="button" id="botaoEbook" target="_blank">Baixar E-book Grátis</a>
-      <p class="contador" id="contadorDownloads">Carregando downloads...</p>
+    <div style="display:flex; align-items:center; justify-content:space-between;">
+      <a href="https://raw.githubusercontent.com/miguelluz2508-dotcom/Tudo-Sobre-Tdah/main/Guia_Completo_TDAH.pdf" class="button" target="_blank">Baixar E-book Grátis</a>
+      <span id="ebookCounter">Carregando downloads...</span>
     </div>
   </section>
 
@@ -233,10 +249,10 @@
   </footer>
 
   <script>
-    // Termos de uso
     const checkbox = document.getElementById('concordo');
     const btn = document.getElementById('aceitarBtn');
     const overlay = document.getElementById('termosOverlay');
+
     checkbox.addEventListener('change', () => {
       if (checkbox.checked) {
         btn.classList.add('ativo');
@@ -248,43 +264,46 @@
         btn.style.cursor = "not-allowed";
       }
     });
+
     btn.addEventListener('click', () => {
       if (checkbox.checked) {
         overlay.style.display = 'none';
         document.body.style.overflow = 'auto';
       }
     });
+
     document.body.style.overflow = 'hidden';
 
-    // CONTADORES
-    const visitasEl = document.getElementById('contadorVisitas');
-    const downloadsEl = document.getElementById('contadorDownloads');
-    const botaoEbook = document.getElementById('botaoEbook');
+    // --- Contadores ---
+    const visitorSpan = document.getElementById('visitorCounter');
+    const ebookSpan = document.getElementById('ebookCounter');
 
-    async function atualizarContadores() {
+    async function updateVisitors() {
       try {
-        // Atualiza visitantes
-        await fetch("https://api.countapi.dev/hit/tdah-site/visitas-ao-site");
-        const visitas = await fetch("https://api.countapi.dev/get/tdah-site/visitas-ao-site").then(r => r.json());
-        visitasEl.textContent = `${visitas.value} pessoas já visitaram este site!`;
-
-        // Atualiza downloads
-        const downloads = await fetch("https://api.countapi.dev/get/tdah-site/downloads-do-e-book").then(r => r.json());
-        downloadsEl.textContent = `${downloads.value} pessoas já baixaram o E-book!`;
+        const res = await fetch('https://api.countapi.dev/get/tdah-site/visitas-ao-site');
+        const data = await res.json();
+        visitorSpan.innerText = `${data.value} pessoas visitaram este site!`;
       } catch {
-        visitasEl.textContent = "Erro ao carregar visitantes.";
-        downloadsEl.textContent = "Erro ao carregar downloads.";
+        visitorSpan.innerText = 'Erro ao carregar visitantes.';
       }
     }
 
-    // Incrementa contador ao clicar no botão do e-book
-    botaoEbook.addEventListener('click', async () => {
-      await fetch("https://api.countapi.dev/hit/tdah-site/downloads-do-e-book");
-      atualizarContadores();
-    });
+    async function updateDownloads() {
+      try {
+        const res = await fetch('https://api.countapi.dev/get/tdah-site/downloads-do-e-book');
+        const data = await res.json();
+        ebookSpan.innerText = `${data.value} downloads do E-book!`;
+      } catch {
+        ebookSpan.innerText = 'Erro ao carregar downloads.';
+      }
+    }
 
-    atualizarContadores();
-    setInterval(atualizarContadores, 1000);
+    setInterval(updateVisitors, 1000);
+    setInterval(updateDownloads, 1000);
+
+    updateVisitors();
+    updateDownloads();
   </script>
+
 </body>
 </html>
