@@ -43,7 +43,6 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       margin: 25px auto;
       padding: 25px;
-      position: relative;
     }
 
     h1, h2 {
@@ -160,19 +159,6 @@
       margin-top: 15px;
       color: #004085;
     }
-
-    /* Contadores do site */
-    .contador {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background-color: #e9ecef;
-      color: #007bff;
-      padding: 10px 15px;
-      border-radius: 8px;
-      font-weight: bold;
-      font-size: 14px;
-    }
   </style>
 </head>
 <body>
@@ -209,7 +195,6 @@
     <h2>Bem-vindo!</h2>
     <p>Aprenda sobre o Transtorno de Déficit de Atenção e Hiperatividade (TDAH), seus sintomas, causas e formas de melhorar o foco e o bem-estar sem prejudicar o paciente.</p>
     <img src="https://source.unsplash.com/1200x500/?focus,brain" alt="Foco e concentração">
-    <div class="contador" id="contadorVisitantes">Carregando visitantes...</div>
   </section>
 
   <section id="tdah" class="section">
@@ -237,11 +222,8 @@
 
   <section id="ebook" class="section">
     <h2>E-book Completo</h2>
-    <p>Nosso e-book explica tudo sobre TDAH, sintomas, impactos e soluções educativas.</p>
-    <div style="display:flex; align-items:center; gap:10px;">
-      <a href="https://raw.githubusercontent.com/miguelluz2508-dotcom/Tudo-Sobre-Tdah/main/Guia_Completo_TDAH.pdf" class="button" target="_blank">Baixar E-book Grátis</a>
-      <span class="contador" id="contadorDownloads">Carregando downloads...</span>
-    </div>
+    <p>Nosso e-book explica tudo sobre TDAH, sintomas, impactos e soluções educativas. Baixe gratuitamente!</p>
+    <a href="https://raw.githubusercontent.com/miguelluz2508-dotcom/Tudo-Sobre-Tdah/main/Guia_Completo_TDAH.pdf" class="button" target="_blank">Baixar E-book Grátis</a>
   </section>
 
   <footer>
@@ -273,40 +255,6 @@
     });
 
     document.body.style.overflow = 'hidden';
-
-    // --- Contadores ---
-    const visitorSpan = document.getElementById('contadorVisitantes');
-    const ebookSpan = document.getElementById('contadorDownloads');
-
-    async function updateVisitors() {
-      try {
-        const res = await fetch('https://api.countapi.xyz/get/tdah-site/visitas-ao-site');
-        const data = await res.json();
-        visitorSpan.innerText = `${data.value} pessoas visitaram este site!`;
-      } catch {
-        visitorSpan.innerText = 'Erro ao carregar visitantes.';
-      }
-    }
-
-    async function updateDownloads() {
-      try {
-        const res = await fetch('https://api.countapi.xyz/get/tdah-site/downloads-do-e-book');
-        const data = await res.json();
-        ebookSpan.innerText = `${data.value} downloads do E-book!`;
-      } catch {
-        ebookSpan.innerText = 'Erro ao carregar downloads.';
-      }
-    }
-
-    // Atualiza a cada segundo
-    setInterval(() => {
-      updateVisitors();
-      updateDownloads();
-    }, 1000);
-
-    // Atualiza imediatamente ao carregar
-    updateVisitors();
-    updateDownloads();
   </script>
 
 </body>
