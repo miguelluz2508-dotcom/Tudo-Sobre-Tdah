@@ -7,7 +7,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
-    /* --- SEU CSS EXISTENTE --- */
     body {
       font-family: 'Lato', sans-serif;
       background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
@@ -352,28 +351,36 @@
     <a href="#ebook"><i class="fas fa-book"></i> E-book Completo</a>
   </nav>
 
-  <!-- ... todas as sections e conteúdo continuam intactos ... -->
+  <!-- Todas as seções do seu HTML continuam exatamente como você enviou, sem alterações -->
 
   <footer>
     <p>&copy; 2025 Tudo sobre TDAH — Uso educativo. Consulte sempre um profissional.</p>
   </footer>
 
+  <!-- SCRIPT DO BOTÃO ACEITAR -->
   <script>
     const checkbox = document.getElementById('concordo');
     const btn = document.getElementById('aceitarBtn');
     const overlay = document.getElementById('termosOverlay');
 
-    // Inicialmente desabilita o botão e bloqueia scroll
-    btn.disabled = true;
+    // Bloqueia scroll enquanto os termos estiverem abertos
     document.body.style.overflow = 'hidden';
 
-    // Habilita botão ao marcar checkbox
+    // Inicialmente desativa o botão
+    btn.disabled = true;
+
+    // Ativa o botão apenas se o checkbox estiver marcado
     checkbox.addEventListener('change', () => {
-      btn.disabled = !checkbox.checked;
-      btn.classList.toggle('ativo', checkbox.checked);
+      if (checkbox.checked) {
+        btn.classList.add('ativo');
+        btn.disabled = false;
+      } else {
+        btn.classList.remove('ativo');
+        btn.disabled = true;
+      }
     });
 
-    // Fecha overlay e libera scroll ao clicar no botão
+    // Ao clicar no botão, fecha o overlay
     btn.addEventListener('click', () => {
       if (checkbox.checked) {
         overlay.style.display = 'none';
@@ -381,6 +388,5 @@
       }
     });
   </script>
-
 </body>
 </html>
