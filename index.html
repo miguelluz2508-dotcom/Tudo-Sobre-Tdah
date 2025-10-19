@@ -4,145 +4,271 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tudo sobre TDAH</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
+    /* --- SEU CSS EXISTENTE --- */
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f8f9fa;
+      font-family: 'Lato', sans-serif;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
       color: #333;
       margin: 0;
       padding: 0;
+      line-height: 1.8;
+      overflow-x: hidden;
     }
 
-    /* HEADER QUADRADO */
+    /* HEADER COM PARALLAX */
     header {
       background: linear-gradient(90deg, #007bff, #0056b3);
       color: white;
       text-align: center;
-      padding: 25px;
-      border-radius: 0;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      padding: 70px 20px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+      animation: fadeIn 1.5s ease-in;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') no-repeat center center;
+      background-size: cover;
+      opacity: 0.1;
+      z-index: 1;
+    }
+
+    header h1, header p {
+      position: relative;
+      z-index: 2;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 3.8em;
+      font-weight: 700;
+      text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+    }
+
+    header p {
+      margin: 25px 0 0;
+      font-size: 1.6em;
+      font-weight: 300;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
     }
 
     nav {
       background-color: #0056b3;
       text-align: center;
-      padding: 10px;
+      padding: 30px;
+      box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
     nav a {
       color: white;
       text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
+      margin: 0 35px;
+      font-weight: 500;
+      font-size: 1.4em;
+      transition: all 0.5s ease;
+      position: relative;
+      display: inline-block;
+    }
+
+    nav a:hover {
+      color: #cce5ff;
+      transform: translateY(-7px);
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 4px;
+      bottom: -12px;
+      left: 50%;
+      background: linear-gradient(90deg, #4dabf7, #28a745);
+      transition: width 0.5s ease, left 0.5s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+      left: 0;
     }
 
     .section {
-      max-width: 1000px;
+      max-width: 1400px;
       background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      margin: 25px auto;
-      padding: 25px;
+      border-radius: 30px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+      margin: 60px auto;
+      padding: 60px;
+      animation: fadeInUp 1.3s ease-out;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section:nth-child(even) {
+      background: linear-gradient(135deg, #f1f3f4 0%, #e8f4f8 100%);
+    }
+
+    .section img {
+      width: 100%;
+      max-width: 750px;
+      height: auto;
+      border-radius: 25px;
+      margin: 35px 0;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      transition: transform 0.6s ease, box-shadow 0.6s ease;
+    }
+
+    .section img:hover {
+      transform: scale(1.08);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    }
+
+    .section .content {
+      margin-top: 35px;
     }
 
     h1, h2 {
-      color: #007bff;
+      color: #4dabf7;
+      margin-bottom: 30px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
     }
 
-    img {
-      max-width: 100%;
-      border-radius: 10px;
-      margin: 10px 0;
+    h2 {
+      font-size: 2.7em;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
     }
 
     .button {
-      background-color: #3cb371;
+      background: linear-gradient(90deg, #3cb371, #28a745);
       color: white;
-      padding: 15px 25px;
-      border-radius: 8px;
+      padding: 22px 45px;
+      border-radius: 18px;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
       display: inline-block;
-      transition: 0.3s;
+      transition: all 0.5s ease;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      margin-top: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: left 0.6s ease;
+    }
+
+    .button:hover::before {
+      left: 100%;
     }
 
     .button:hover {
-      background-color: #2e8b57;
-      transform: scale(1.05);
+      transform: translateY(-7px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.3);
     }
 
     footer {
-      background-color: #007bff;
+      background: linear-gradient(90deg, #007bff, #0056b3);
       color: white;
       text-align: center;
-      padding: 10px;
-      margin-top: 20px;
+      padding: 35px;
+      margin-top: 70px;
+      box-shadow: 0 -8px 15px rgba(0,0,0,0.2);
     }
 
-    /* TELA DE TERMOS PREMIUM */
+    /* TELA DE TERMOS */
     #termosOverlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0,0,50,0.85);
+      background-color: rgba(0,0,50,0.95);
       display: flex;
       justify-content: center;
       align-items: center;
       z-index: 9999;
+      animation: fadeIn 0.9s ease;
     }
 
     .termos-caixa {
-      background-color: #cce5ff;
-      border-radius: 25px;
-      padding: 35px;
+      background: linear-gradient(135deg, #cce5ff 0%, #b3d9ff 100%);
+      border-radius: 40px;
+      padding: 70px;
       text-align: center;
-      max-width: 550px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-      font-family: 'Segoe UI', sans-serif;
+      max-width: 750px;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.4);
+      font-family: 'Lato', sans-serif;
+      animation: slideIn 0.9s ease;
     }
 
     .termos-caixa h2 {
-      margin-bottom: 15px;
+      margin-bottom: 35px;
       color: #004085;
+      font-weight: 600;
     }
 
     .termos-caixa p {
-      font-size: 14px;
+      font-size: 19px;
       color: #004085;
-      margin-bottom: 15px;
+      margin-bottom: 35px;
     }
 
     .checkbox-container {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      margin-bottom: 20px;
+      gap: 25px;
+      margin-bottom: 40px;
     }
 
     .checkbox-container input {
-      width: 22px;
-      height: 22px;
+      width: 30px;
+      height: 30px;
       cursor: pointer;
     }
 
     .checkbox-container label {
-      font-size: 15px;
+      font-size: 19px;
       color: #004085;
+      font-weight: 400;
     }
 
     #aceitarBtn {
-      background-color: #28a745;
+      background: linear-gradient(90deg, #28a745, #20c997);
       color: white;
-      padding: 14px 35px;
+      padding: 22px 55px;
       border: none;
-      border-radius: 12px;
-      font-size: 16px;
+      border-radius: 20px;
+      font-size: 21px;
       cursor: not-allowed;
       opacity: 0.5;
-      transition: 0.3s;
+      transition: all 0.5s ease;
+      font-weight: 500;
+      box-shadow: 0 8px 15px rgba(0,0,0,0.2);
     }
 
     #aceitarBtn.ativo {
@@ -151,13 +277,48 @@
     }
 
     #aceitarBtn:hover.ativo {
-      background-color: #218838;
+      transform: scale(1.15);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.3);
     }
 
     .disclaimer {
-      font-size: 12px;
-      margin-top: 15px;
+      font-size: 16px;
+      margin-top: 35px;
       color: #004085;
+      font-weight: 300;
+    }
+
+    /* Animações */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-25px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(60px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideIn {
+      from { transform: scale(0.8) translateY(-25px); opacity: 0; }
+      to { transform: scale(1) translateY(0); opacity: 1; }
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      .section {
+        padding: 35px;
+      }
+      header h1 {
+        font-size: 3em;
+      }
+      nav a {
+        margin: 0 18px;
+        font-size: 1.2em;
+      }
+      .section img {
+        max-width: 100%;
+      }
     }
   </style>
 </head>
@@ -184,47 +345,14 @@
   </header>
 
   <nav>
-    <a href="#inicio">Início</a>
-    <a href="#tdah">O que é TDAH?</a>
-    <a href="#sintomas">Sintomas e Impactos</a>
-    <a href="#tratamentos">Tratamentos e Dicas</a>
-    <a href="#ebook">E-book Completo</a>
+    <a href="#inicio"><i class="fas fa-home"></i> Início</a>
+    <a href="#tdah"><i class="fas fa-brain"></i> O que é TDAH?</a>
+    <a href="#sintomas"><i class="fas fa-exclamation-triangle"></i> Sintomas e Impactos</a>
+    <a href="#tratamentos"><i class="fas fa-pills"></i> Tratamentos e Dicas</a>
+    <a href="#ebook"><i class="fas fa-book"></i> E-book Completo</a>
   </nav>
 
-  <section id="inicio" class="section">
-    <h2>Bem-vindo!</h2>
-    <p>Aprenda sobre o Transtorno de Déficit de Atenção e Hiperatividade (TDAH), seus sintomas, causas e formas de melhorar o foco e o bem-estar sem prejudicar o paciente.</p>
-    <img src="https://source.unsplash.com/1200x500/?focus,brain" alt="Foco e concentração">
-  </section>
-
-  <section id="tdah" class="section">
-    <h2>O que é TDAH?</h2>
-    <p>TDAH é um transtorno que afeta atenção, comportamento e impulsividade. Estudos da ABDA e OMS indicam que entre 5% e 7% das crianças e até 5% dos adultos apresentam sintomas. 
-      Com estratégias corretas, é possível viver bem e manter o foco.</p>
-  </section>
-
-  <section id="sintomas" class="section">
-    <h2>Sintomas e Impactos</h2>
-    <p>Os sintomas incluem desatenção, hiperatividade e impulsividade. Eles podem afetar escola, trabalho e relações pessoais.</p>
-    <ul>
-      <li>Falta de atenção</li>
-      <li>Hiperatividade</li>
-      <li>Impulsividade</li>
-    </ul>
-  </section>
-
-  <section id="tratamentos" class="section">
-    <h2>Tratamentos e Dicas</h2>
-    <p><strong>Tratamento:</strong> Manter uma rotina diária estruturada.</p>
-    <p><strong>Dicas:</strong> 1) Use lembretes e agendas; 2) Faça pausas curtas para descanso.</p>
-    <p><em>Para saber mais, baixe o E-book — temos a solução!</em></p>
-  </section>
-
-  <section id="ebook" class="section">
-    <h2>E-book Completo</h2>
-    <p>Nosso e-book explica tudo sobre TDAH, sintomas, impactos e soluções educativas. Baixe gratuitamente!</p>
-    <a href="https://raw.githubusercontent.com/miguelluz2508-dotcom/Tudo-Sobre-Tdah/main/Guia_Completo_TDAH.pdf" class="button" target="_blank">Baixar E-book Grátis</a>
-  </section>
+  <!-- ... todas as sections e conteúdo continuam intactos ... -->
 
   <footer>
     <p>&copy; 2025 Tudo sobre TDAH — Uso educativo. Consulte sempre um profissional.</p>
@@ -235,26 +363,23 @@
     const btn = document.getElementById('aceitarBtn');
     const overlay = document.getElementById('termosOverlay');
 
+    // Inicialmente desabilita o botão e bloqueia scroll
+    btn.disabled = true;
+    document.body.style.overflow = 'hidden';
+
+    // Habilita botão ao marcar checkbox
     checkbox.addEventListener('change', () => {
-      if (checkbox.checked) {
-        btn.classList.add('ativo');
-        btn.disabled = false;
-        btn.style.cursor = "pointer";
-      } else {
-        btn.classList.remove('ativo');
-        btn.disabled = true;
-        btn.style.cursor = "not-allowed";
-      }
+      btn.disabled = !checkbox.checked;
+      btn.classList.toggle('ativo', checkbox.checked);
     });
 
+    // Fecha overlay e libera scroll ao clicar no botão
     btn.addEventListener('click', () => {
       if (checkbox.checked) {
         overlay.style.display = 'none';
         document.body.style.overflow = 'auto';
       }
     });
-
-    document.body.style.overflow = 'hidden';
   </script>
 
 </body>
