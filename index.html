@@ -16,8 +16,6 @@
       line-height: 1.8;
       overflow-x: hidden;
     }
-
-    /* HEADER COM PARALLAX */
     header {
       background: linear-gradient(90deg, #007bff, #0056b3);
       color: white;
@@ -28,7 +26,6 @@
       box-shadow: 0 12px 25px rgba(0,0,0,0.3);
       animation: fadeIn 1.5s ease-in;
     }
-
     header::before {
       content: '';
       position: absolute;
@@ -41,26 +38,22 @@
       opacity: 0.1;
       z-index: 1;
     }
-
     header h1, header p {
       position: relative;
       z-index: 2;
     }
-
     header h1 {
       margin: 0;
       font-size: 3.8em;
       font-weight: 700;
       text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
     }
-
     header p {
       margin: 25px 0 0;
       font-size: 1.6em;
       font-weight: 300;
       text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
     }
-
     nav {
       background-color: #0056b3;
       text-align: center;
@@ -70,7 +63,6 @@
       top: 0;
       z-index: 100;
     }
-
     nav a {
       color: white;
       text-decoration: none;
@@ -81,12 +73,10 @@
       position: relative;
       display: inline-block;
     }
-
     nav a:hover {
       color: #cce5ff;
       transform: translateY(-7px);
     }
-
     nav a::after {
       content: '';
       position: absolute;
@@ -97,12 +87,10 @@
       background: linear-gradient(90deg, #4dabf7, #28a745);
       transition: width 0.5s ease, left 0.5s ease;
     }
-
     nav a:hover::after {
       width: 100%;
       left: 0;
     }
-
     .section {
       max-width: 1400px;
       background-color: white;
@@ -115,11 +103,9 @@
       position: relative;
       overflow: hidden;
     }
-
     .section:nth-child(even) {
       background: linear-gradient(135deg, #f1f3f4 0%, #e8f4f8 100%);
     }
-
     .section img {
       width: 100%;
       max-width: 750px;
@@ -129,22 +115,18 @@
       box-shadow: 0 10px 20px rgba(0,0,0,0.2);
       transition: transform 0.6s ease, box-shadow 0.6s ease;
     }
-
     .section img:hover {
       transform: scale(1.08);
       box-shadow: 0 15px 30px rgba(0,0,0,0.3);
     }
-
     .section .content {
       margin-top: 35px;
     }
-
     h1, h2 {
       color: #4dabf7;
       margin-bottom: 30px;
       text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
     }
-
     h2 {
       font-size: 2.7em;
       font-weight: 600;
@@ -153,7 +135,6 @@
       justify-content: center;
       gap: 18px;
     }
-
     .button {
       background: linear-gradient(90deg, #3cb371, #28a745);
       color: white;
@@ -168,7 +149,6 @@
       position: relative;
       overflow: hidden;
     }
-
     .button::before {
       content: '';
       position: absolute;
@@ -179,16 +159,13 @@
       background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
       transition: left 0.6s ease;
     }
-
     .button:hover::before {
       left: 100%;
     }
-
     .button:hover {
       transform: translateY(-7px);
       box-shadow: 0 15px 30px rgba(0,0,0,0.3);
     }
-
     footer {
       background: linear-gradient(90deg, #007bff, #0056b3);
       color: white;
@@ -197,8 +174,6 @@
       margin-top: 70px;
       box-shadow: 0 -8px 15px rgba(0,0,0,0.2);
     }
-
-    /* TELA DE TERMOS */
     #termosOverlay {
       position: fixed;
       top: 0;
@@ -212,7 +187,6 @@
       z-index: 9999;
       animation: fadeIn 0.9s ease;
     }
-
     .termos-caixa {
       background: linear-gradient(135deg, #cce5ff 0%, #b3d9ff 100%);
       border-radius: 40px;
@@ -223,19 +197,16 @@
       font-family: 'Lato', sans-serif;
       animation: slideIn 0.9s ease;
     }
-
     .termos-caixa h2 {
       margin-bottom: 35px;
       color: #004085;
       font-weight: 600;
     }
-
     .termos-caixa p {
       font-size: 19px;
       color: #004085;
       margin-bottom: 35px;
     }
-
     .checkbox-container {
       display: flex;
       align-items: center;
@@ -243,19 +214,16 @@
       gap: 25px;
       margin-bottom: 40px;
     }
-
     .checkbox-container input {
       width: 30px;
       height: 30px;
       cursor: pointer;
     }
-
     .checkbox-container label {
       font-size: 19px;
       color: #004085;
       font-weight: 400;
     }
-
     #aceitarBtn {
       background: linear-gradient(90deg, #28a745, #20c997);
       color: white;
@@ -269,41 +237,32 @@
       font-weight: 500;
       box-shadow: 0 8px 15px rgba(0,0,0,0.2);
     }
-
     #aceitarBtn.ativo {
       cursor: pointer;
       opacity: 1;
     }
-
     #aceitarBtn:hover.ativo {
       transform: scale(1.15);
       box-shadow: 0 12px 25px rgba(0,0,0,0.3);
     }
-
     .disclaimer {
       font-size: 16px;
       margin-top: 35px;
       color: #004085;
       font-weight: 300;
     }
-
-    /* Animações */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(-25px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(60px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
     @keyframes slideIn {
       from { transform: scale(0.8) translateY(-25px); opacity: 0; }
       to { transform: scale(1) translateY(0); opacity: 1; }
     }
-
-    /* Responsividade */
     @media (max-width: 768px) {
       .section {
         padding: 35px;
@@ -323,70 +282,108 @@
 </head>
 <body>
 
-  <!-- TELA DE TERMOS -->
-  <div id="termosOverlay">
-    <div class="termos-caixa">
-      <h2>Termos de Uso</h2>
-      <p>Antes de acessar o site, você precisa concordar com os termos abaixo:</p>
-      <div class="checkbox-container">
-        <input type="checkbox" id="concordo">
-        <label for="concordo">Concorde com os Termos de Uso para Entrar no Site</label>
-      </div>
-      <button id="aceitarBtn">Aceitar e Entrar</button>
-      <p class="disclaimer">Ao concordar, você entende que este site é apenas educativo e não substitui tratamento médico. Você não poderá processar o criador por uso indevido das informações.</p>
+<div id="termosOverlay">
+  <div class="termos-caixa">
+    <h2>Termos de Uso</h2>
+    <p>Antes de acessar o site, você precisa concordar com os termos abaixo:</p>
+    <div class="checkbox-container">
+      <input type="checkbox" id="concordo">
+      <label for="concordo">Concorde com os Termos de Uso para Entrar no Site</label>
     </div>
+    <button id="aceitarBtn">Aceitar e Entrar</button>
+    <p class="disclaimer">Ao concordar, você entende que este site é apenas educativo e não substitui tratamento médico. Você não poderá processar o criador por uso indevido das informações.</p>
   </div>
+</div>
 
-  <!-- SITE PRINCIPAL -->
-  <header>
-    <h1>Tudo sobre TDAH</h1>
-    <p>Informações, Dicas e Soluções Educativas</p>
-  </header>
+<header>
+  <h1>Tudo sobre TDAH</h1>
+  <p>Informações, Dicas e Soluções Educativas</p>
+</header>
 
-  <nav>
-    <a href="#inicio"><i class="fas fa-home"></i> Início</a>
-    <a href="#tdah"><i class="fas fa-brain"></i> O que é TDAH?</a>
-    <a href="#sintomas"><i class="fas fa-exclamation-triangle"></i> Sintomas e Impactos</a>
-    <a href="#tratamentos"><i class="fas fa-pills"></i> Tratamentos e Dicas</a>
-    <a href="#ebook"><i class="fas fa-book"></i> E-book Completo</a>
-  </nav>
+<nav>
+  <a href="#inicio"><i class="fas fa-home"></i> Início</a>
+  <a href="#tdah"><i class="fas fa-brain"></i> O que é TDAH?</a>
+  <a href="#sintomas"><i class="fas fa-exclamation-triangle"></i> Sintomas e Impactos</a>
+  <a href="#tratamentos"><i class="fas fa-pills"></i> Tratamentos e Dicas</a>
+  <a href="#ebook"><i class="fas fa-book"></i> E-book Completo</a>
+</nav>
 
-  <!-- Todas as seções do seu HTML continuam exatamente como você enviou, sem alterações -->
+<section id="inicio" class="section">
+  <img src="https://images.unsplash.com/photo-1601933477631-3a0ee3995b6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pessoa estudando concentrada, representando aprendizado sobre TDAH">
+  <div class="content">
+    <h2><i class="fas fa-handshake"></i> Bem-vindo!</h2>
+    <p>Aprenda sobre o Transtorno de Déficit de Atenção e Hiperatividade (TDAH), seus sintomas, causas e formas de melhorar o foco e o bem-estar sem prejudicar o paciente.</p>
+  </div>
+</section>
 
-  <footer>
-    <p>&copy; 2025 Tudo sobre TDAH — Uso educativo. Consulte sempre um profissional.</p>
-  </footer>
+<section id="tdah" class="section">
+  <img src="https://images.unsplash.com/photo-1581090700227-1b8f54e3e1c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ilustração de cérebro com conexões, simbolizando TDAH">
+  <div class="content">
+    <h2><i class="fas fa-brain"></i> O que é TDAH?</h2>
+    <p>TDAH é um transtorno que afeta atenção, comportamento e impulsividade. Estudos da ABDA e OMS indicam que entre 5% e 7% das crianças e até 5% dos adultos apresentam sintomas. Com estratégias corretas, é possível viver bem e manter o foco.</p>
+  </div>
+</section>
 
-  <!-- SCRIPT DO BOTÃO ACEITAR -->
-  <script>
-    const checkbox = document.getElementById('concordo');
-    const btn = document.getElementById('aceitarBtn');
-    const overlay = document.getElementById('termosOverlay');
+<section id="sintomas" class="section">
+  <img src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Criança ou jovem brincando, representando sintomas de hiperatividade, desatenção e impulsividade no TDAH">
+  <div class="content">
+    <h2><i class="fas fa-exclamation-triangle"></i> Sintomas e Impactos</h2>
+    <p>Os sintomas incluem desatenção, hiperatividade e impulsividade. Eles podem afetar escola, trabalho e relações pessoais.</p>
+    <ul>
+      <li>Falta de atenção</li>
+      <li>Hiperatividade</li>
+      <li>Impulsividade</li>
+    </ul>
+  </div>
+</section>
 
-    // Bloqueia scroll enquanto os termos estiverem abertos
-    document.body.style.overflow = 'hidden';
+<section id="tratamentos" class="section">
+  <img src="https://images.unsplash.com/photo-1588776814546-6f66e67b6a3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Rotina organizada com agenda, representando tratamento e dicas para TDAH">
+  <div class="content">
+    <h2><i class="fas fa-pills"></i> Tratamentos e Dicas</h2>
+    <p><strong>Tratamento:</strong> Manter uma rotina diária estruturada.</p>
+    <p><strong>Dicas:</strong> 1) Use lembretes e agendas; 2) Faça pausas curtas para descanso.</p>
+    <p><em>Para saber mais, baixe o E-book — temos a solução!</em></p>
+  </div>
+</section>
 
-    // Inicialmente desativa o botão
-    btn.disabled = true;
+<section id="ebook" class="section">
+  <img src="https://images.unsplash.com/photo-1596496057980-9b4c536f9b20?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Livro aberto, representando e-book educativo sobre TDAH">
+  <div class="content">
+    <h2><i class="fas fa-book"></i> E-book Completo</h2>
+    <p>Nosso e-book explica tudo sobre TDAH, sintomas, impactos e soluções educativas. Baixe gratuitamente!</p>
+    <a href="https://raw.githubusercontent.com/miguelluz2508-dotcom/Tudo-Sobre-Tdah/main/Guia_Completo_TDAH.pdf" class="button" target="_blank">Baixar E-book Grátis</a>
+  </div>
+</section>
 
-    // Ativa o botão apenas se o checkbox estiver marcado
-    checkbox.addEventListener('change', () => {
-      if (checkbox.checked) {
-        btn.classList.add('ativo');
-        btn.disabled = false;
-      } else {
-        btn.classList.remove('ativo');
-        btn.disabled = true;
-      }
-    });
+<footer>
+  <p>&copy; 2025 Tudo sobre TDAH — Uso educativo. Consulte sempre um profissional.</p>
+</footer>
 
-    // Ao clicar no botão, fecha o overlay
-    btn.addEventListener('click', () => {
-      if (checkbox.checked) {
-        overlay.style.display = 'none';
-        document.body.style.overflow = 'auto';
-      }
-    });
-  </script>
+<script>
+  const checkbox = document.getElementById('concordo');
+  const btn = document.getElementById('aceitarBtn');
+  const overlay = document.getElementById('termosOverlay');
+
+  checkbox.addEventListener('change', () => {
+    if (checkbox.checked) {
+      btn.classList.add('ativo');
+      btn.disabled = false;
+    } else {
+      btn.classList.remove('ativo');
+      btn.disabled = true;
+    }
+  });
+
+  btn.addEventListener('click', () => {
+    if (checkbox.checked) {
+      overlay.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+  });
+
+  document.body.style.overflow = 'hidden';
+</script>
+
 </body>
 </html>
